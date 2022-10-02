@@ -226,7 +226,7 @@ function start() {
   }
 
   function buildTeam() {
-    fs.writeFileSync("./dist/index.html", pageRender(myTeam), (err) => {
+    fs.writeFileSync("./dist/index.html", pageTemplate(myTeam), (err) => {
       if (err) throw err;
       console.log(
         "The Team-Builder has been created, you can find it in the dist folder."
