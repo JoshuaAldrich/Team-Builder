@@ -18,7 +18,7 @@ function start() {
       .prompt([
         {
           type: "input",
-          name: "managerTitle",
+          name: "managerName",
           message: "What is your manager's name?",
           validate: (answer) => {
             if (answer !== "") {
@@ -99,9 +99,7 @@ function start() {
 
   function createEngineer() {
     console.log(`
-================================
-         ADD AN ENGINEER
-================================`);
+         Add an Engineer`);
     return inquirer
       .prompt([
         {
@@ -163,9 +161,8 @@ function start() {
 
   function createInter() {
     console.log(`
-        ================================
-                 ADD AN INTERN
-        ================================`);
+        
+     Add an intern`);
     return inquirer
       .prompt([
         {

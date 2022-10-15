@@ -5,14 +5,14 @@ const createTeam = (buildTeamCards) => {
     return `
         <div class="card m-3">
                         <div class="card-header bg-primary text-white">
-                            <h3>${manager.getName()}</h3>
-                            <h4 ><i class="bi bi-cup-hot"></i> ${manager.getRole()}</h4>
+                            <h2>${manager.getName()}</h2>
+                            <h3><i class="bi bi-laptop"></i> ${manager.getRole()}</h3>
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
-                                <li class="list-group-item">ID: M${manager.getId()}</li>
-                                <li class="list-group-item">Email:<a href="mailto: ${manager.getEmail()}">${manager.getEmail()}</a></li>
-                                <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
+                                <li class="list-group-item">Manager ID: ${manager.getId()}</li>
+                                <li class="list-group-item">Email: <a href="mailto: ${manager.getEmail()}">${manager.getEmail()}</a></li>
+                                <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
                             </ul>
                         </div>
                     </div>
@@ -22,14 +22,14 @@ const createTeam = (buildTeamCards) => {
   //generate engineer card
   const generateEngineerCard = (engineer) => {
     return `
-        <div class="card  m-3">
+        <div class="card m-3">
                         <div class="card-header bg-primary text-white">
-                            <h3>${engineer.getName()}</h3>
-                            <h4><i class="bi bi-eyeglasses"></i> ${engineer.getRole()}</h4>
+                            <h2>${engineer.getName()}</h2>
+                            <h3><i class="bi bi-building"></i> ${engineer.getRole()}</h3>
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
-                                <li class="list-group-item">ID: E${engineer.getId()}</li>
+                                <li class="list-group-item">Engineer ID: ${engineer.getId()}</li>
                                 <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
                                 <li class="list-group-item">Github: <a href="https://github.com/${engineer.getGithub()}" target="_blank">${engineer.getGithub()}</a></li>
                             </ul>
@@ -41,16 +41,16 @@ const createTeam = (buildTeamCards) => {
   //generate Intern card
   const generateInternCard = (intern) => {
     return `
-        <div class="card  m-3">
+        <div class="card m-3">
                         <div class="card-header bg-primary text-white">
-                            <h3>${intern.getName()}</h3>
-                            <h4><i class="bi bi-mortarboard"></i> ${intern.getRole()}</h4>
+                            <h2>${intern.getName()}</h2>
+                            <h3><i class="bi bi-book"></i> ${intern.getRole()}</h3>
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
-                                <li class="list-group-item">ID: I${intern.getId()}</li>
-                                <li class="list-group-item">Email:<a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
-                                <li class="list-group-item">School:${intern.getSchool()}</li>
+                                <li class="list-group-item">Intern ID: ${intern.getId()}</li>
+                                <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+                                <li class="list-group-item">Attending: ${intern.getSchool()}</li>
                             </ul>
                         </div>
                     </div>
@@ -63,6 +63,7 @@ const createTeam = (buildTeamCards) => {
     buildTeamCards
       .filter((employee) => employee.getRole() === "Manager")
       .map((manager) => generateManagerCard(manager))
+      .join("")
   );
   htmlCards.push(
     buildTeamCards
@@ -92,18 +93,18 @@ module.exports = (buildTeamCards) => {
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/dist/style.css">
-    <title>Team-Roster</title>
+    <title>Team-Builder</title>
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 jumbotron mb-3 team-heading">
-                <h1 class="text-center">TEAM ROSTER</h1>
+            <div class="col-12 jumbotron mb-4">
+                <h1 class="text-center">Team-Builder</h1>
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="container-body col-12 d-flex justify-content-center">${createTeam(
+                <div class="container-body d-flex col-12  justify-content-center">${createTeam(
                   buildTeamCards
                 )}</div>
             </div>
